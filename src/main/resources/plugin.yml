@@ -1,0 +1,34 @@
+name: SurvivingPays
+version: '${version}'
+main: dev.mpab.survivingpays.SurvivingPays
+api-version: 1.18
+depend:
+  - LuckPerms
+commands:
+  keepinv:
+    description: Commands for keepinv
+    usage: /<command> [toggle|status] [player]
+    aliases:
+      - ki
+permissions:
+  keepinv.*:
+    default: op
+    description: Gives access to all commands
+  keepinv.admin:
+    default: op
+    description: Gives access to all admin commands
+    children:
+      keepinv.toggle.others: true
+      keepinv.status.others: true
+  keepinv.toggle:
+    default: true
+    description: Allows players to toggle their personal keepInventory rule
+  keepinv.toggle.others:
+    default: op
+    description: Allows players to toggle another player's keepInventory rule
+  keepinv.status:
+    default: true
+    description: Notifies player of their current keepInventory status
+  keepinv.status.others:
+    default: op
+    description: Notifies player of another player's current keepInventory status
